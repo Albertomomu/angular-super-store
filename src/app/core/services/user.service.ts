@@ -24,7 +24,8 @@ export class UserService {
       mergeMap((user: any) => user.results),
       map((user: any) => ({
         'name': user.name,
-        'login': user.login
+        'login': user.login,
+        'picture': user.picture
       }))
     );
   }
