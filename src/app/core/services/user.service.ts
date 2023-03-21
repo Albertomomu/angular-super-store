@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { from, of, map, mergeMap, tap, retry, delay } from 'rxjs'
+import { from, of, map, mergeMap, tap, retry, delay, retryWhen, take } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +29,12 @@ export class UserService {
         'picture': user.picture
       })),
       // Hace 5 reintentos si es que recibe un error
-      retry(5),
-      delay(3000)
+      retryWhen(errors =>
+        errors.pipe(
+          delay(1000),
+          tap((err) => console.warn('Reintentando')),
+          take(5)
+        ))
     );
   }
   getUserList() {
