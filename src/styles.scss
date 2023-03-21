@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'ubuntu';
+  src: url('./assets/fonts/ubuntu.woff2') format('truetype');
+}
+
 body {
   margin: 0 auto;
   font-size: 16px;
-  font-family: monospace;
+  font-family: 'ubuntu', monospace;
 }
