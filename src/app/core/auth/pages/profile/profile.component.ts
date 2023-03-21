@@ -9,6 +9,8 @@ import { UserService } from 'src/app/core/services/user.service';
 export class ProfileComponent {
 
   user: any;
+  userProperty!: string;
+  userPropertyValue!: string;
 
   constructor(private userService: UserService) { }
 
