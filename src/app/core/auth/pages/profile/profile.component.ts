@@ -11,11 +11,13 @@ export class ProfileComponent {
   user: any;
   userProperty!: string;
   userPropertyValue!: string;
+  userList: any[] = [];
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.getUser()
+    this.getUserList()
   }
 
   onLogin() {
@@ -28,6 +30,13 @@ export class ProfileComponent {
     this.userService.getProfileUser().subscribe(user => {
       this.user = user
       console.log(this.user)
+    })
+  }
+
+  getUserList() {
+    this.userService.getUserList().subscribe(userList => {
+      this.userList = userList
+      console.log(this.userList)
     })
   }
 

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { from, of, map, mergeMap, tap } from 'rxjs'
+import { from, of, map, mergeMap, tap, retry, delay } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -16,17 +16,31 @@ export class UserService {
   }
 
   getProfileUser() {
+    // para comprobarlo poner mal url
     const url = `${this.baseUrl}/api`
     return this.http.get(url).pipe(
-      tap(x => console.log('avisar a google analytics')),
-      // Tap no transforma datos
+      // Tap no transforma datos, se ejecuta solo cuando no da error
+      tap(x => console.warn('avisar a google analytics')),
       // me estoy cargando el array de manera fake, veremos otros operadores para juntar array
-      mergeMap((user: any) => user.results),
+      map((user: any) => user.results[0]),
       map((user: any) => ({
         'name': user.name,
         'login': user.login,
         'picture': user.picture
-      }))
+      })),
+      // Hace 5 reintentos si es que recibe un error
+      retry(5),
+      delay(3000)
+    );
+  }
+  getUserList() {
+    // para comprobarlo poner mal url
+    const url = `${this.baseUrl}/api?results=10`
+    return this.http.get(url).pipe(
+      tap(x => console.log('avisar a google analytics')),
+      map((user: any) => user.results),
+      // Hace 5 reintentos si es que recibe un error
+      retry(5)
     );
   }
 }
