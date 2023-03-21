@@ -33,5 +33,23 @@
         width: 100%;
       }
     }
+
+    .profile-content {
+      .profile-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.5em;
+
+        span {
+          color: rgb(134, 134, 134);
+        }
+
+        h2 {
+          margin-top: 10px;
+          color: rgb(58, 58, 58);
+        }
+      }
+    }
   }
 }
