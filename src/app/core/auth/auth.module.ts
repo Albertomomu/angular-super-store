@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { MaterialModule } from 'src/app/shared/modules/material.module';
 
 
 
@@ -9,7 +10,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     ProfileComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   exports: [
     ProfileComponent
