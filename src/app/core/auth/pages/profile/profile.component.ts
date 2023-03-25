@@ -12,6 +12,7 @@ export class ProfileComponent {
   userProperty!: string;
   userPropertyValue!: string;
   userList: any[] = [];
+  profileOptions: any;
 
   constructor(private userService: UserService) { }
 
