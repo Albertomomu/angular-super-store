@@ -52,10 +52,24 @@
       }
 
       .profile-options {
-        mat-icon {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 30px;
+
+        .profile-icons {
           font-size: 2rem;
           width: 50px;
           height: auto;
+        }
+
+        .profile-icons.active {
+          color: #83BA43;
+        }
+
+        .profile-icons.active::before {
+          content: '';
+          border-top: 1px solid black;
         }
       }
     }

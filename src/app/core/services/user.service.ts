@@ -28,13 +28,6 @@ export class UserService {
         'login': user.login,
         'picture': user.picture
       })),
-      // Hace 5 reintentos si es que recibe un error
-      retryWhen(errors =>
-        errors.pipe(
-          delay(1000),
-          tap((err) => console.warn('Reintentando')),
-          take(5)
-        ))
     );
   }
   getUserList() {
