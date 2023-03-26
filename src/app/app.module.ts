@@ -9,6 +9,7 @@ import { AuthModule } from './core/auth/auth.module';
 import { MaterialModule } from './shared/modules/material.module';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { ErrorHandlerInterceptor } from './core/interceptors/error-handler.interceptor';
+import { UsersModule } from './pages/users/users.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ErrorHandlerInterceptor } from './core/interceptors/error-handler.inter
     AppRoutingModule,
     HttpClientModule,
     AuthModule,
-    MaterialModule
+    MaterialModule,
+    UsersModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
