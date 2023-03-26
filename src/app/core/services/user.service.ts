@@ -25,8 +25,12 @@ export class UserService {
       map((user: any) => user.results[0]),
       map((user: any) => ({
         'name': user.name,
+        'email': user.email,
+        'phone': user.phone,
+        'location': user.location,
+        'dob': user.dob,
         'login': user.login,
-        'picture': user.picture
+        'picture': user.picture,
       })),
     );
   }

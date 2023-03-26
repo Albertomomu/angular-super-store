@@ -29,6 +29,7 @@ export class ProfileComponent {
   getUser() {
     this.userService.getProfileUser().subscribe(user => {
       this.user = user
+      console.log(this.user)
       this.userPropertyValue = user.name.first
     })
   }
@@ -47,7 +48,29 @@ export class ProfileComponent {
     switch (tooltip) {
       case 'Nombre':
         this.userProperty = 'name';
+        this.userPropertyValue = this.user.name.first;
         break;
+      case 'Correo electronico':
+        this.userProperty = 'email';
+        this.userPropertyValue = this.user.email;
+        break;
+      case 'Fecha nacimiento':
+        this.userProperty = 'birthday';
+        this.userPropertyValue = this.user.dob.date;
+        break;
+      case 'Direccion':
+        this.userProperty = 'direction';
+        this.userPropertyValue = `${this.user.location.state}, ${this.user.location.country}`;
+        break;
+      case 'Telefono':
+        this.userProperty = 'phone number';
+        this.userPropertyValue = this.user.phone;
+        break;
+      case 'Password':
+        this.userProperty = 'password';
+        this.userPropertyValue = this.user.login.password;
+        break;
+
     }
   }
 

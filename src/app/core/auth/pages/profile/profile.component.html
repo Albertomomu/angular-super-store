@@ -6,16 +6,17 @@
     </div>
     <div class="profile-content">
       <div class="profile-info">
-        <span>Hi, My {{userProperty}} is</span>
+        <span>Hi, my {{userProperty}} is</span>
         <h2>{{userPropertyValue}}</h2>
       </div>
       <div class="profile-options">
         <mat-icon class="profile-icons active" data-tooltip="Nombre" (mouseover)="getData($event)">face_4</mat-icon>
-        <mat-icon class="profile-icons" data-tooltip="Correo electrónico">mail</mat-icon>
-        <mat-icon class="profile-icons" data-tooltip="Fecha nacimiento">calendar_month</mat-icon>
-        <mat-icon class="profile-icons" data-tooltip="Direccion">directions</mat-icon>
-        <mat-icon class="profile-icons" data-tooltip="Telefono">call</mat-icon>
-        <mat-icon class="profile-icons" data-tooltip="Password">lock</mat-icon>
+        <mat-icon class="profile-icons" data-tooltip="Correo electronico" (mouseover)="getData($event)">mail</mat-icon>
+        <mat-icon class="profile-icons" data-tooltip="Fecha nacimiento"
+          (mouseover)="getData($event)">calendar_month</mat-icon>
+        <mat-icon class="profile-icons" data-tooltip="Direccion" (mouseover)="getData($event)">directions</mat-icon>
+        <mat-icon class="profile-icons" data-tooltip="Telefono" (mouseover)="getData($event)">call</mat-icon>
+        <mat-icon class="profile-icons" data-tooltip="Password" (mouseover)="getData($event)">lock</mat-icon>
       </div>
     </div>
   </div>
