@@ -36,7 +36,6 @@ export class ProfileComponent {
   getUserList() {
     this.userService.getUserList().subscribe(userList => {
       this.userList = userList
-      //console.log(this.userList)
     })
   }
 
