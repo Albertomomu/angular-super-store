@@ -29,7 +29,6 @@ export class ProfileComponent {
   getUser() {
     this.userService.getProfileUser().subscribe(user => {
       this.user = user
-      console.log(this.user)
       this.userPropertyValue = user.name.first
     })
   }
@@ -37,14 +36,19 @@ export class ProfileComponent {
   getUserList() {
     this.userService.getUserList().subscribe(userList => {
       this.userList = userList
-      console.log(this.userList)
+      //console.log(this.userList)
     })
   }
 
   getData(event: Event) {
     if (!event.target) return
     const tooltip = (event.target as HTMLElement).getAttribute('data-tooltip')
-    console.log(tooltip)
+    const input = event.target as HTMLElement;
+    const inputs = document.querySelectorAll('.profile-icons')
+    inputs.forEach(input => {
+      input.classList.remove('active')
+    })
+    input.classList.add('active')
     switch (tooltip) {
       case 'Nombre':
         this.userProperty = 'name';
