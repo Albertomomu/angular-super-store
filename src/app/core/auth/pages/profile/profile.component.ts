@@ -9,10 +9,9 @@ import { UserService } from 'src/app/core/services/user.service';
 export class ProfileComponent {
 
   user: any;
-  userProperty!: string;
+  userProperty: string = 'name';
   userPropertyValue!: string;
   userList: any[] = [];
-  profileOptions: any;
 
   constructor(private userService: UserService) { }
 
@@ -30,7 +29,7 @@ export class ProfileComponent {
   getUser() {
     this.userService.getProfileUser().subscribe(user => {
       this.user = user
-      console.log(this.user)
+      this.userPropertyValue = user.name.first
     })
   }
 
@@ -39,6 +38,17 @@ export class ProfileComponent {
       this.userList = userList
       console.log(this.userList)
     })
+  }
+
+  getData(event: Event) {
+    if (!event.target) return
+    const tooltip = (event.target as HTMLElement).getAttribute('data-tooltip')
+    console.log(tooltip)
+    switch (tooltip) {
+      case 'Nombre':
+        this.userProperty = 'name';
+        break;
+    }
   }
 
   getUserForm() {
