@@ -1,0 +1,15 @@
+<div class="card-list">
+<ng-container *ngIf="productsList.length; else fakeList">
+        <app-product-card 
+        class="product-container" 
+        *ngFor="let product of productsList" 
+        [product]="product"></app-product-card>
+</ng-container>
+<!-- FAKE LIST -->
+<ng-template #fakeList>
+    <app-product-card 
+    class="product-container" 
+    *ngFor="let product of [1,2,3,4,5]">
+    </app-product-card>
+</ng-template>
+</div>

@@ -1,0 +1,12 @@
+.card-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    .product-container {
+        width: calc(33.33% - 1rem);
+        @media(max-width: 600px){
+            width: 100%;
+        }
+    }
+    
+}

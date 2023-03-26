@@ -1,0 +1,14 @@
+<ng-container *ngIf="product; else fakeProductTemplate">
+    <img 
+    decoding="auto" 
+    loading="eager" 
+    fetchpriority="high" 
+    class="card-img" 
+    [src]="product.thumbnail" 
+    alt="" />
+
+</ng-container>
+
+<ng-template #fakeProductTemplate>
+    <div class="card-img fakeLoading">Cargando</div>
+</ng-template>
