@@ -15,5 +15,18 @@
     border-radius: 4px;
   }
 
-  .user-content {}
+  .user-content {
+    gap: 1.5rem;
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0px 20px;
+
+      img {
+        border-radius: 100%;
+      }
+    }
+  }
 }

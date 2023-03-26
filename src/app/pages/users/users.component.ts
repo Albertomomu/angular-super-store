@@ -8,10 +8,15 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class UsersComponent {
 
+  usersList: any[] = [];
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getUserList()
+    this.userService.getUserList().subscribe(userList => {
+      this.usersList = userList
+      console.log(this.usersList)
+    })
   }
 
 }

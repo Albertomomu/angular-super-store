@@ -1,7 +1,13 @@
 <div class="container">
-  <div class="user-container">
+  <div class="user-container" *ngIf="usersList">
     <div class="user-content">
-
+      <div class="user-info" *ngFor="let user of usersList">
+        <img src="{{user.picture.large}}" alt="">
+        <p>{{user.name.first}} {{user.name.last}}</p>
+        <p>{{user.dob.age}}</p>
+        <p>{{user.login.username}}</p>
+        <p>{{user.gender}}</p>
+      </div>
     </div>
   </div>
 </div>
